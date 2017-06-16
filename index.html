@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Refugees</title>
+    <link rel="stylesheet" href="main.css">
+    <script src="https://d3js.org/d3.v4.min.js"></script> <!-- Importing D3 Scripts -->
+    <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script> <!-- Sequential, diverging and categorical color scales derived from ColorBrewer. -->
+    <script src="script.js"></script>
+</head>
+<body>
+    <div id="MainWrap">
+        <header id="ItisHead">
+            <h1><u>REFUGEES AROUND THE WORLD</u></h1>
+        </header>
+       
+       <nav id="ItisNav">
+            <ul>
+                <li title="Wikipedia"><a href="https://en.wikipedia.org/wiki/Refugee" rel="noopener noreferrer" target="_blank" class="mylink">Wiki</a></li>
+                <li class="myList" title="Graph 1: Cumulative"><a href="#Graph1" class="mylink">Cumulative Data for Origin Countries</a></li>
+                <li class="myList" title="Graph 2: Distribution"><a href="#Graph2" class="mylink">Refugee Distribution</a></li>
+            </ul>
+        </nav>
+
+        <div id="SecandSide">
+            <section id="ItisSection">
+                <article>
+                    <header>
+                        <hgroup class="club">
+                            <h1 class="royalty"><a name="Graph1"></a>Refugees from Different Countries</h1>
+                            <h2 class="azure"><strong>Origin Country v/s No. of Refugees</strong> for the selected Year</h2>
+                        </hgroup>
+                    </header>
+					<div id="Grph1">
+						
+					</div>
+                    <p>Something about Graph 1. Lorem ipsum dolor sit amet, 
+                    consectetur adipisicing elit. Ipsam, quasi accusamus 
+                    commodi vel molestias saepe in dolorem adipisci! Veniam 
+                    libero deleniti assumenda labore amet suscipit nisi 
+                    unde dicta sint! Vel? Lorem ipsum dolor sit amet, 
+                    consectetur adipisicing elit. Praesentium, deserunt, 
+                    ipsa nemo debitis voluptatibus exercitationem alias quaerat 
+                    in iusto molestiae minus optio laboriosam quam voluptas 
+                    obcaecati vero tempora? Ut, architecto!<br/><br/></p>
+                    <footer>
+                        <p>Data Source for Graph 1</p>
+                    </footer>
+                </article>
+                
+                 <article>
+                    <header>
+                        <hgroup class="club">
+                            <h1 class="royalty"><a name="Graph2"></a>Distribution of Refugees across Different Residence Nations</h1>
+                            <h2 class="azure">Refugees from different Origin Nations living in different Residence Nations</h2>
+                        </hgroup>
+                    </header>
+					<div id="Grph2">
+						
+					</div>
+                    <p>Something about Graph 2. Lorem ipsum dolor sit amet, 
+                    consectetur adipisicing elit. Natus, neque, dolore, illum
+                    velit ratione est esse veniam libero quis ipsam nobis 
+                    similique aut eligendi repellendus reprehenderit non 
+                    qui eaque iste! Lorem ipsum dolor sit amet, consectetur 
+                    adipisicing elit. Nihil facilis iusto voluptatum eaque 
+                    in. Ad, debitis quam non! Voluptatibus enim mollitia minima 
+                    rem? Distinctio, debitis, odio incidunt deserunt amet itaque?<br/><br/></p>
+                    <footer>
+                        <p>Data Source for Graph 2</p>
+                    </footer>
+                </article>
+            </section>
+
+            <aside id="ItisAside">
+                <p class="myhead">Console<br/><br/></p>
+                <p>Select <strong>Year</strong> and <strong>Residence Countries</strong>, and click <strong>Draw</strong> Button for Graphs to appear. Dicta, cupiditate, id minus nulla neque sit officiis maxime. Incidunt, quod in provident consequuntur reiciendis ducimus cupiditate repellat ipsa! Debitis, omnis, non.<br/><br/></p>
+                <form action="" id="consoleform">
+					<div id="BrowseIt">
+						<input type="button" id="csvFileInput" onclick="fileLoader()"/>
+						<label for="csvFileInput" id="LabelforUpload">Load File</label>
+					</div>
+					
+                    <select name="Year" id="YearDrop" class="Form1Buttons" onchange="listenYear()">
+                        <option value="0">Select Year</option>
+                    </select><br><br>
+                    <select name="Residence1" id="Res1Drop" class="Form1Buttons" onchange="listenResidenceUpdated('Res1Drop')">
+                        <option value="0">Residence Country 1</option>
+                    </select><br><br>
+                    <select name="Residence2" id="Res2Drop" class="Form1Buttons" onchange="listenResidenceUpdated('Res2Drop')">
+                        <option value="0">Residence Country 2</option>
+                    </select><br><br>
+                    <select name="Residence3" id="Res3Drop" class="Form1Buttons" onchange="listenResidenceUpdated('Res3Drop')">
+                        <option value="0">Residence Country 3</option>
+                    </select><br><br>
+                    <select name="Residence4" id="Res4Drop" class="Form1Buttons" onchange="listenResidenceUpdated('Res4Drop')">
+                        <option value="0">Residence Country 4</option>
+                    </select><br><br>
+                    <select name="Residence5" id="Res5Drop" class="Form1Buttons" onchange="listenResidenceUpdated('Res5Drop')">
+                        <option value="0">Residence Country 5</option>
+                    </select><br><br>
+					<input type="button" onclick="drawVisual()" value="Draw Bar Charts" class="Form1Buttons" id="DrawBarButton"/><br><br>
+					<input type="button" onclick="updateVisual()" value="Update Bar Charts" class="Form1Buttons" id="UpdateBarButton"/><br><br>
+                    <input type="button" onclick="resetmyForm()" value="Reset Console & Charts" class="Form1Buttons" id="ResetButton"/><br><br>
+					
+                </form>
+                <p>Select <strong>Year</strong> and <strong>Residence Countries</strong>, and click <strong>Draw</strong> Button for Graphs to appear. Esse, natus, temporibus, veniam eligendi ad suscipit nesciunt nam quas maiores culpa alias consectetur quod enim harum maxime adipisci error eum doloremque.<br><br></p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat, alias, aut, eaque vitae accusamus consequatur consectetur numquam officiis nostrum nisi error quod modi non ipsum quasi hic minima dignissimos laborum.<br><br></p>
+			    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat, alias, aut, eaque vitae accusamus consequatur consectetur numquam officiis nostrum nisi error quod modi non ipsum quasi hic minima dignissimos laborum.<br><br></p>
+			    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat, alias, aut, eaque vitae accusamus consequatur consectetur numquam officiis nostrum nisi error quod modi non ipsum quasi hic minima dignissimos laborum.<br><br></p>
+			</aside>
+        </div>
+        <footer id="ItisFoot">
+            <div class="ExportBar"><p>Export Bar:</p></div>
+            <form action="">             
+                <div class="ExportBar">
+                    <input type="checkbox" name="Exporter" value="1" id="c1">
+                    <label for="c1"><span>Graph 1</span></label>
+                </div>
+                <div class="ExportBar">
+                    <input type="checkbox" name="Exporter" value="2" id="c2" height="19px">
+                    <label for="c2"><span>Graph 2</span></label>
+                </div>
+                <div id="ExportButtonHandle">
+                    <input type="button" onclick="exportPNG()" value="Export as .PNG" id="ExportButton"/><br><br>   
+                </div>
+                <div id=LogoInFoot title="A Random Image">
+                    <img src="hands.png" alt="A Random Image" height="50px">
+                </div>
+            </form>
+        </footer>
+    </div>
+	
+	<!-- Disabling Update Diagram Button by Default. -->
+	<script>
+			document.getElementById("UpdateBarButton").disabled = true;
+	</script> 
+	
+</body>
+</html>
