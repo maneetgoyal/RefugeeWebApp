@@ -38,6 +38,7 @@ function fileLoader(){
 		else{
 			console.log(data);
 			data_Data = data; // Global variable which stores all the data.
+			notify_me();
 		}
 		console.log(data_Data[1]);
 		console.log(data_Data.length);
@@ -46,6 +47,32 @@ function fileLoader(){
 		uniqueYears(); // Calculates and displays (on console) all the unique years and updates Year Drop Down Menu
 		uniqueResidences(); // Calculates and displays (on console) all the unique residence countries and updates Year Drop Down Menu
 	});
+}
+
+// Sends a notification when data load is successful.
+function notify_me(){
+	
+	  // Let's check if the browser supports notifications
+	  if (!("Notification" in window)) {
+		alert("This browser does not support desktop notification");
+	  }
+
+	  // Let's check whether notification permissions have already been granted
+	  else if (Notification.permission === "granted") {
+		// If it's okay let's create a notification
+		var notification = new Notification("Data Loaded Successfully!");
+	  }
+
+	  // Otherwise, we need to ask the user for permission
+	  else if (Notification.permission !== "denied") {
+		Notification.requestPermission(function (permission) {
+		  // If the user accepts, let's create a notification
+		  if (permission === "granted") {
+			var notification = new Notification("Data Loaded Successfully!");
+		  }
+		});
+	  }
+
 }
 
 // Calculates and displays (on console) all the unique years and updates Year Drop Down Menu
