@@ -54,7 +54,7 @@ function notify_me(){
 	
 	  // Let's check if the browser supports notifications
 	  if (!("Notification" in window)) {
-		alert("This browser does not support desktop notification");
+		alert("This browser does not support desktop notification. But Data Loaded Successfully.");
 	  }
 
 	  // Let's check whether notification permissions have already been granted
